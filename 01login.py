@@ -34,16 +34,16 @@ def login_to_site(driver, url, user_id, password):
         pw_input = wait.until(EC.presence_of_element_located((By.XPATH, pw_input_xpath)))
         pw_input.send_keys(password)
 
-        # Enter 키를 통해 로그인
+        # Enter 키 눌러 로그인
         pw_input.send_keys("\n")
 
-        # 로그인 성공을 확인하기 위해 특정 요소를 기다림
+        # 로그인 성공을 확인
         success_element_id = "welcome_message"
         success_element = wait.until(EC.presence_of_element_located((By.ID, success_element_id)))
         print("로그인 성공")
 
     except TimeoutException:
-        print("로그인 실패 혹은 페이지 로드 지연")
+        print("로그인 실패, 페이지 로드 지연")
 
 
 if __name__ == "__main__":
